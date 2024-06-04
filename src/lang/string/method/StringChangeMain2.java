@@ -2,12 +2,32 @@ package lang.string.method;
 
 public class StringChangeMain2 {
     public static void main(String[] args) {
-        String strWithSpace = "   Java Programing";
-        System.out.println("소문자로 변환: " + strWithSpace.toLowerCase());
-        System.out.println("대문자로 변환: " + strWithSpace.toUpperCase());
-        System.out.println("공백제거1" + "'" + strWithSpace.trim() + "'");
-        System.out.println("공백제거2" + "'" + strWithSpace.strip() + "'");
-        System.out.println("앞공백제거" + "'" + strWithSpace.stripLeading() + "'");
-        System.out.println("뒤공백제거" + "'" + strWithSpace.stripTrailing() + "'");
+        String str = "Apple,Banana,Orange";
+        // split()
+        String[] splitStr = str.split(",");
+        for(String s : splitStr){
+            System.out.println(s);
+        }
+        String joinStr = "";
+        /*for(String string : splitStr){
+            joinStr += string + "-";
+        }*/
+
+
+        for(int i=0; i<splitStr.length; i++){
+            String string = splitStr[i];
+            joinStr += string;
+            if(i != splitStr.length-1){
+                joinStr += "-";
+            }
+        }
+
+        System.out.println("joinStr = " + joinStr);
+        // join()
+        String joinedStr = String.join("-", "A", "B", "C");
+        System.out.println("연결된 문자열 = " +joinedStr);
+        // 문자열 배열 연결
+        String result = String.join("-", splitStr);
+        System.out.println("result "+ result);
     }
 }
